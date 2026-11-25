@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mein Helfer Deutschland | راهنمای جامع آلمان</title>
+  <style>
+    :root {
+      --bg-dark: #071326;
+      --bg-card: #0e2242;
+      --bg-card-hover: #14305c;
+      --gold: #e5b84b;
+      --gold-soft: rgba(229, 184, 75, 0.16);
+      --text-main: #f5f7fa;
+      --text-muted: #b3c2d9;
+      --border: rgba(229, 184, 75, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Tahoma, "Vazirmatn", system-ui, sans-serif;
+      background: linear-gradient(160deg, var(--bg-dark) 0%, #0b1c36 60%, #060f1e 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(7, 19, 38, 0.85);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--gold-soft);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      display: grid;
+      place-items: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .brand h1 {
+      font-size: 1.15rem;
+      color: var(--gold);
+    }
+
+    .brand small {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.9rem;
+      transition: 0.2s ease;
+    }
+
+    .tab-btn:hover,
+    .tab-btn.active {
+      color: var(--gold);
+      background: var(--gold-soft);
+      border-color: var(--border);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 20px 48px;
+    }
+
+    .hero {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero h2 {
+      color: var(--gold);
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      max-width: 680px;
+    }
+
+    .search-box {
+      width: 100%;
+      max-width: 340px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.92rem;
+      outline: none;
+    }
+
+    .search-box input:focus {
+      border-color: var(--gold);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      background: var(--bg-card-hover);
+      border-color: var(--gold);
+    }
+
+    .card .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      color: var(--gold);
+      background: var(--gold-soft);
+      padding: 3px 9px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .letter-box {
+      margin-top: 28px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+    }
+
+    .letter-box h3 {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 110px;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.92rem;
+      margin-bottom: 12px;
+      resize: vertical;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #071326;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .result-box {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 10px;
+      background: rgba(7, 19, 38, 0.7);
+      border: 1px dashed var(--border);
+      color: var(--text-main);
+      font-size: 0.92rem;
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-wrap">
+      <div class="brand">
+        <div class="brand-badge">MH</div>
+        <div>
+          <h1>Mein Helfer Deutschland</h1>
+          <small>راهنمای کاربردی زندگی و امور اداری در آلمان</small>
+        </div>
+      </div>
+      <nav class="tabs" id="categoryTabs">
+        <button class="tab-btn active" data-cat="all">همه بخش‌ها</button>
+        <button class="tab-btn" data-cat="offices">ادارات (Ämter)</button>
+        <button class="tab-btn" data-cat="social">خدمات اجتماعی</button>
+        <button class="tab-btn" data-cat="letters">نامه‌ها و فرم‌ها</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <h2>همراه شما در امور روزمره آلمان</h2>
+        <p>دسترسی سریع به معرفی ادارات مهم، خدمات حمایتی، و بررسی متن نامه‌های رسمی به زبان ساده.</p>
+      </div>
+      <div class="search-box">
+        <input type="search" id="searchInput" placeholder="جستجو (مثلاً Jobcenter, Termin, Brief)..." />
+      </div>
+    </section>
+
+    <section class="grid" id="cardsGrid"></section>
+
+    <section class="letter-box">
+      <h3>بررسی سریع متن نامه یا اصطلاح آلمانی</h3>
+      <textarea id="letterInput" placeholder="متن نامه یا عبارت آلمانی را اینجا وارد کنید (مثلاً Termin, Bescheid, Jobcenter, Krankenversicherung)..."></textarea>
+      <button class="btn-gold" id="analyzeBtn">تحلیل سریع متن</button>
+      <div class="result-box" id="resultBox"></div>
+    </section>
+  </main>
+
+  <footer>
+    Mein Helfer Deutschland — نسخه وب آزمایشی (`index.html`)
+  </footer>
+
+  <script>
+    const items = [
+      {
+        cat: "offices",
+        tag: "ادارات دولتی",
+        title: "Rathaus & Bürgerbüro",
+        desc: "ثبت آدرس محل سکونت (Anmeldung)، امور هویتی و دریافت مدارک شهری."
+      },
+      {
+        cat: "offices",
+        tag: "ادارات دولتی",
+        title: "Ausländerbehörde",
+        desc: "رسیدگی به امور اقامت، تمدید ویزا و مجوزهای اقامتی."
+      },
+      {
+        cat: "social",
+        tag: "خدمات اجتماعی",
+        title: "Jobcenter & Arbeitsagentur",
+        desc: "حمایت‌های کاریابی، دوره‌های آموزشی و کمک‌هزینه‌های مرتبط."
+      },
+      {
+        cat: "social",
+        tag: "خدمات اجتماعی",
+        title: "Krankenkasse",
+        desc: "بیمه درمانی قانونی در آلمان، انتخاب پزشک و دریافت کارت بیمه."
+      },
+      {
+        cat: "letters",
+        tag: "نامه‌ها",
+        title: "درک نامه‌های اداری (Bescheid)",
+        desc: "توجه به تاریخ مهلت پاسخ (Frist)، شماره پرونده و نوع درخواست."
+      },
+      {
+        cat: "letters",
+        tag: "نامه‌ها",
+        title: "درخواست وقت قبلی (Termin)",
+        desc: "ارسال ایمیل یا پیام رسمی برای رزرو نوبت مراجعه حضوری."
+      }
+    ];
+
+    let activeCat = "all";
+    const grid = document.getElementById("cardsGrid");
+    const searchInput = document.getElementById("searchInput");
+    const tabs = document.querySelectorAll(".tab-btn");
+
+    function renderCards() {
+      const q = searchInput.value.trim().toLowerCase();
+      const filtered = items.filter((item) => {
+        const matchCat = activeCat === "all" || item.cat === activeCat;
+        const matchText =
+          item.title.toLowerCase().includes(q) ||
+          item.desc.toLowerCase().includes(q) ||
+          item.tag.toLowerCase().includes(q);
+        return matchCat && matchText;
+      });
+
+      grid.innerHTML = filtered.length
+        ? filtered
+            .map(
+              (item) => `
+          <article class="card">
+            <span class="tag">${item.tag}</span>
+            <h3>${item.title}</h3>
+            <p>${item.desc}</p>
+          </article>
+        `
+            )
+            .join("")
+        : `<div class="card"><p>موردی با این مشخصات پیدا نشد.</p></div>`;
+    }
+
+    tabs.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        tabs.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeCat = btn.dataset.cat;
+        renderCards();
+      });
+    });
+
+    searchInput.addEventListener("input", renderCards);
+
+    document.getElementById("analyzeBtn").addEventListener("click", () => {
+      const text = document.getElementById("letterInput").value.trim();
+      const box = document.getElementById("resultBox");
+      box.style.display = "block";
+
+      if (!text) {
+        box.innerHTML = "لطفاً ابتدا یک متن یا عبارت آلمانی وارد کنید.";
+        return;
+      }
+
+      const lower = text.toLowerCase();
+      const hints = [];
+      if (lower.includes("termin")) hints.push("<b>Termin</b>: به معنای «وقت ملاقات / نوبت» است.");
+      if (lower.includes("frist")) hints.push("<b>Frist</b>: به معنای «مهلت زمانی» برای اقدام یا پاسخ است.");
+      if (lower.includes("bescheid")) hints.push("<b>Bescheid</b>: حکم یا اعلام رسمی تصمیم یک اداره است.");
+      if (lower.includes("jobcenter")) hints.push("<b>Jobcenter</b>: مرکز خدمات شغلی و حمایت اجتماعی.");
+      if (lower.includes("krankenkasse")) hints.push("<b>Krankenkasse</b>: صندوق بیمه سلامت.");
+
+      const summary = hints.length
+        ? hints.join("<br>")
+        : "واژه کلیدی شناخته‌شده‌ای یافت نشد؛ برای ترجمه دقیق‌تر، متن کامل‌تر را وارد کنید.";
+
+      box.innerHTML = `<strong>تعداد کلمات:</strong> ${text.split(/\s+/).length}<br>${summary}`;
+    });
+
+    renderCards();
+  </script>
+</body>
+</html>
