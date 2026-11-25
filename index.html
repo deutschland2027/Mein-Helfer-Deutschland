@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mein Helfer Deutschland | راهنمای جامع آلمان</title>
+  <title>Mein Helfer Deutschland | پورتال جامع راهنمای پناهجویان، ادارات و مشاوره در ۱۶ ایالت آلمان</title>
   <style>
     :root {
-      --bg-dark: #071326;
-      --bg-card: #0e2242;
-      --bg-card-hover: #14305c;
-      --gold: #e5b84b;
-      --gold-soft: rgba(229, 184, 75, 0.16);
-      --text-main: #f5f7fa;
-      --text-muted: #b3c2d9;
-      --border: rgba(229, 184, 75, 0.25);
+      --bg-dark: #061021;
+      --bg-card: #0c203d;
+      --bg-card-2: #112a50;
+      --gold: #e6b84c;
+      --gold-soft: rgba(230, 184, 76, 0.15);
+      --text: #f4f7fb;
+      --muted: #b6c5dc;
+      --border: rgba(230, 184, 76, 0.25);
+      --danger: #ff7a7a;
+      --ok: #6ee7b7;
     }
 
     * {
@@ -24,49 +26,53 @@
 
     body {
       font-family: Tahoma, "Vazirmatn", system-ui, sans-serif;
-      background: linear-gradient(160deg, var(--bg-dark) 0%, #0b1c36 60%, #060f1e 100%);
-      color: var(--text-main);
+      background: linear-gradient(160deg, var(--bg-dark) 0%, #091830 55%, #040b17 100%);
+      color: var(--text);
+      line-height: 1.8;
       min-height: 100vh;
-      line-height: 1.7;
     }
 
     header {
-      border-bottom: 1px solid var(--border);
-      background: rgba(7, 19, 38, 0.85);
-      backdrop-filter: blur(8px);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 40;
+      background: rgba(6, 16, 33, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
     }
 
-    .nav-wrap {
-      max-width: 1100px;
+    .container {
+      max-width: 1220px;
       margin: 0 auto;
-      padding: 14px 20px;
+      padding: 0 18px;
+    }
+
+    .header-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
+      padding: 12px 0;
       flex-wrap: wrap;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
-    .brand-badge {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
+    .logo {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
       background: var(--gold-soft);
       border: 1px solid var(--gold);
       color: var(--gold);
       display: grid;
       place-items: center;
       font-weight: bold;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
     }
 
     .brand h1 {
@@ -75,337 +81,1067 @@
     }
 
     .brand small {
-      display: block;
-      color: var(--text-muted);
+      color: var(--muted);
       font-size: 0.78rem;
+      display: block;
     }
 
-    .tabs {
+    nav {
       display: flex;
-      gap: 8px;
+      gap: 6px;
       flex-wrap: wrap;
     }
 
-    .tab-btn {
+    .nav-btn {
       background: transparent;
-      color: var(--text-muted);
+      color: var(--muted);
       border: 1px solid transparent;
-      padding: 7px 14px;
-      border-radius: 8px;
+      padding: 7px 12px;
+      border-radius: 9px;
       cursor: pointer;
       font-family: inherit;
-      font-size: 0.9rem;
-      transition: 0.2s ease;
+      font-size: 0.85rem;
+      transition: 0.2s;
     }
 
-    .tab-btn:hover,
-    .tab-btn.active {
+    .nav-btn:hover,
+    .nav-btn.active {
       color: var(--gold);
       background: var(--gold-soft);
       border-color: var(--border);
     }
 
     main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 28px 20px 48px;
+      padding: 24px 0 60px;
     }
 
     .hero {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 18px;
       padding: 24px;
       margin-bottom: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
     }
 
     .hero h2 {
       color: var(--gold);
-      font-size: 1.4rem;
-      margin-bottom: 6px;
+      font-size: 1.42rem;
+      margin-bottom: 8px;
     }
 
     .hero p {
-      color: var(--text-muted);
-      max-width: 680px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-bottom: 16px;
     }
 
-    .search-box {
-      width: 100%;
-      max-width: 340px;
+    .wizard-box {
+      background: rgba(6, 16, 33, 0.75);
+      border: 1px solid var(--gold);
+      border-radius: 14px;
+      padding: 18px;
     }
 
-    .search-box input {
+    .wizard-title {
+      color: var(--gold);
+      font-weight: bold;
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+
+    .wizard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    select,
+    input[type="text"],
+    textarea {
       width: 100%;
-      padding: 11px 14px;
+      padding: 11px 13px;
       border-radius: 10px;
       border: 1px solid var(--border);
       background: var(--bg-dark);
-      color: var(--text-main);
+      color: var(--text);
       font-family: inherit;
-      font-size: 0.92rem;
-      outline: none;
+      font-size: 0.9rem;
     }
 
-    .search-box input:focus {
-      border-color: var(--gold);
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background: var(--gold);
+      color: #061021;
+      border: none;
+      padding: 11px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-family: inherit;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-family: inherit;
+      cursor: pointer;
+      font-size: 0.88rem;
+    }
+
+    .section-block {
+      margin-bottom: 32px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .section-header h3 {
+      color: var(--gold);
+      font-size: 1.16rem;
+    }
+
+    .section-header span {
+      font-size: 0.82rem;
+      color: var(--muted);
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px;
     }
 
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 20px;
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      padding: 18px;
+      transition: 0.2s;
     }
 
     .card:hover {
-      transform: translateY(-3px);
-      background: var(--bg-card-hover);
+      background: var(--bg-card-2);
       border-color: var(--gold);
     }
 
-    .card .tag {
+    .badge {
       display: inline-block;
-      font-size: 0.75rem;
-      color: var(--gold);
       background: var(--gold-soft);
-      padding: 3px 9px;
+      color: var(--gold);
+      font-size: 0.74rem;
+      padding: 2px 10px;
       border-radius: 999px;
-      margin-bottom: 10px;
-    }
-
-    .card h3 {
-      font-size: 1.08rem;
       margin-bottom: 8px;
     }
 
+    .badge-danger {
+      background: rgba(255, 122, 122, 0.16);
+      color: var(--danger);
+      border: 1px solid rgba(255, 122, 122, 0.35);
+    }
+
+    .card h4 {
+      font-size: 1.04rem;
+      margin-bottom: 6px;
+    }
+
     .card p {
-      color: var(--text-muted);
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+    }
+
+    .card ul {
+      padding-right: 18px;
+      font-size: 0.86rem;
+    }
+
+    .card li {
+      margin-bottom: 5px;
+    }
+
+    .meta-line {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--border);
+      font-size: 0.83rem;
+      color: var(--muted);
+    }
+
+    .meta-line a {
+      color: var(--gold);
+      text-decoration: underline;
+    }
+
+    .lawyer-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--gold);
+      border-radius: 16px;
+      padding: 20px;
+      margin-top: 14px;
+    }
+
+    .lawyer-panel h4 {
+      color: var(--gold);
+      margin-bottom: 8px;
+      font-size: 1.08rem;
+    }
+
+    .step-box {
+      background: rgba(6, 16, 33, 0.75);
+      border-right: 4px solid var(--gold);
+      border-radius: 10px;
+      padding: 14px;
+      margin-top: 12px;
       font-size: 0.9rem;
     }
 
-    .letter-box {
-      margin-top: 28px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 22px;
-    }
-
-    .letter-box h3 {
-      color: var(--gold);
-      margin-bottom: 10px;
-    }
-
-    textarea {
-      width: 100%;
-      min-height: 110px;
+    .warning-box {
+      background: rgba(255, 122, 122, 0.1);
+      border: 1px solid rgba(255, 122, 122, 0.35);
+      border-radius: 10px;
       padding: 12px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--bg-dark);
-      color: var(--text-main);
-      font-family: inherit;
-      font-size: 0.92rem;
-      margin-bottom: 12px;
-      resize: vertical;
+      margin-top: 12px;
+      color: #ffd6d6;
+      font-size: 0.87rem;
     }
 
-    .btn-gold {
-      background: var(--gold);
-      color: #071326;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 10px;
-      font-weight: bold;
-      font-family: inherit;
-      cursor: pointer;
-    }
-
-    .result-box {
-      margin-top: 14px;
-      padding: 14px;
-      border-radius: 10px;
-      background: rgba(7, 19, 38, 0.7);
-      border: 1px dashed var(--border);
-      color: var(--text-main);
-      font-size: 0.92rem;
-      display: none;
+    .disclaimer {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 10px;
     }
 
     footer {
-      text-align: center;
-      padding: 20px;
-      color: var(--text-muted);
-      font-size: 0.82rem;
       border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 22px;
+      color: var(--muted);
+      font-size: 0.82rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="nav-wrap">
+    <div class="container header-inner">
       <div class="brand">
-        <div class="brand-badge">MH</div>
+        <div class="logo">MH</div>
         <div>
           <h1>Mein Helfer Deutschland</h1>
-          <small>راهنمای کاربردی زندگی و امور اداری در آلمان</small>
+          <small>پورتال جامع پناهجویان، مهاجران، ادارات ۱۶ ایالت و مشاوره گام‌به‌گام</small>
         </div>
       </div>
-      <nav class="tabs" id="categoryTabs">
-        <button class="tab-btn active" data-cat="all">همه بخش‌ها</button>
-        <button class="tab-btn" data-cat="offices">ادارات (Ämter)</button>
-        <button class="tab-btn" data-cat="social">خدمات اجتماعی</button>
-        <button class="tab-btn" data-cat="letters">نامه‌ها و فرم‌ها</button>
+      <nav id="topNav">
+        <button class="nav-btn active" data-target="all">همه بخش‌ها</button>
+        <button class="nav-btn" data-target="city-results">ادارات و مؤسسات شهر</button>
+        <button class="nav-btn" data-target="lawyer-guide">مشاوره حقوقی و راه حل</button>
+        <button class="nav-btn" data-target="email-guide">آموزش و ساخت ایمیل</button>
+        <button class="nav-btn" data-target="ngo-directory">مؤسسات پناهجویان</button>
+        <button class="nav-btn" data-target="emergency">شماره‌های ضروری</button>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main class="container">
+    <!-- Step-by-step State -> City -> Problem Selector -->
     <section class="hero">
-      <div>
-        <h2>همراه شما در امور روزمره آلمان</h2>
-        <p>دسترسی سریع به معرفی ادارات مهم، خدمات حمایتی، و بررسی متن نامه‌های رسمی به زبان ساده.</p>
-      </div>
-      <div class="search-box">
-        <input type="search" id="searchInput" placeholder="جستجو (مثلاً Jobcenter, Termin, Brief)..." />
+      <h2>ابتدا ایالت و شهر خود را انتخاب کنید تا تمام امکانات و راه حل‌ها نمایش داده شود</h2>
+      <p>این سامانه برای تمام ۱۶ ایالت آلمان و شهرهای آن‌ها طراحی شده است. پس از انتخاب ایالت، شهر و نوع مشکل، ادارات مربوطه، مؤسسات حامی پناهجویان، راه حل گام‌به‌گام و متن آماده ایمیل برای شما نمایش داده می‌شود.</p>
+
+      <div class="wizard-box">
+        <div class="wizard-title">مرحله ۱ تا ۳: انتخاب موقعیت و مشکل شما</div>
+        <div class="wizard-grid">
+          <div>
+            <label for="stateSelect">۱. ایالت خود را انتخاب کنید (Bundesland):</label>
+            <select id="stateSelect"></select>
+          </div>
+          <div>
+            <label for="citySelect">۲. شهر خود را انتخاب کنید (Stadt):</label>
+            <select id="citySelect"></select>
+          </div>
+          <div>
+            <label for="customCityInput">یا نام شهر / روستای دقیق را بنویسید (اختیاری):</label>
+            <input type="text" id="customCityInput" placeholder="مثلاً: Schwalmtal, Viersen, Neuss..." />
+          </div>
+          <div>
+            <label for="problemSelect">۳. مشکل یا موضوع شما چیست؟</label>
+            <select id="problemSelect">
+              <option value="asyl_bamf">پناهندگی، مصاحبه BAMF یا دریافت جواب (Bescheid)</option>
+              <option value="abgelehnt">جواب منفی (Ablehnung) یا نامه اخطار / مهلت کوتاه</option>
+              <option value="auslaender">تمدید اقامت، کارت اقامت، Duldung یا اجازه کار</option>
+              <option value="jobcenter_sozial">مشکل با Jobcenter یا Sozialamt (قطع یا کم شدن پول / اجاره)</option>
+              <option value="wohnung">پیدا کردن خانه، قرارداد اجاره یا تأییدیه پرداخت اجاره</option>
+              <option value="familie">الحاق خانواده (Familiennachzug) یا ثبت ازدواج و تولد</option>
+              <option value="gesundheit">بیمه درمانی، دکتر، بیمارستان یا درمان روانی</option>
+              <option value="arbeit_schule">کلاس زبان، Ausbildung، کار یا معادل‌سازی مدرک</option>
+            </select>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn" id="btnRunGuide">نمایش کامل ادارات، مؤسسات و راه حل مشکل من</button>
+          <button class="btn-outline" id="btnJumpEmail">رفتن به ساخت ایمیل رسمی برای همین موضوع</button>
+        </div>
       </div>
     </section>
 
-    <section class="grid" id="cardsGrid"></section>
+    <!-- 1. Dynamic City & State Offices + Refugee Organizations -->
+    <section class="section-block view-section" data-view="city-results" id="cityResultsSection">
+      <div class="section-header">
+        <h3 id="citySectionTitle">۱. ادارات دولتی و مراکز فعال در ایالت و شهر انتخاب‌شده</h3>
+        <span id="citySectionSubtitle">بر اساس ایالت و شهر شما به‌روزرسانی می‌شود</span>
+      </div>
+      <div class="grid" id="cityCardsGrid"></div>
+    </section>
 
-    <section class="letter-box">
-      <h3>بررسی سریع متن نامه یا اصطلاح آلمانی</h3>
-      <textarea id="letterInput" placeholder="متن نامه یا عبارت آلمانی را اینجا وارد کنید (مثلاً Termin, Bescheid, Jobcenter, Krankenversicherung)..."></textarea>
-      <button class="btn-gold" id="analyzeBtn">تحلیل سریع متن</button>
-      <div class="result-box" id="resultBox"></div>
+    <!-- 2. Legal-style Step-by-Step Advisor -->
+    <section class="section-block view-section" data-view="lawyer-guide" id="lawyerSection">
+      <div class="section-header">
+        <h3>۲. راهنمای تخصصی و راه حل گام‌به‌گام (مانند مشاور حقوقی)</h3>
+        <span>تحلیل مشکل، مدارک لازم، مهلت‌های قانونی و اقدامات فوری</span>
+      </div>
+      <div class="lawyer-panel" id="lawyerContent"></div>
+    </section>
+
+    <!-- 3. Email Writing Guide + Auto Generator -->
+    <section class="section-block view-section" data-view="email-guide" id="emailSection">
+      <div class="section-header">
+        <h3>۳. طریقه ایمیل نوشتن رسمی به ادارات آلمان + تولیدکننده خودکار نامه</h3>
+        <span>یادگیری ساختار ایمیل حرفه‌ای و کپی متن آماده آلمانی</span>
+      </div>
+
+      <div class="grid" style="margin-bottom: 16px;">
+        <article class="card">
+          <span class="badge">قانون ۱: موضوع ایمیل (Betreff)</span>
+          <h4>چطور عنوان ایمیل بنویسیم که سریع جواب بدهند؟</h4>
+          <p>ادارات آلمان روزانه صدها ایمیل می‌گیرند. همیشه در خط موضوع، <strong>نوع درخواست + شماره پرونده یا تولد</strong> را بنویسید.</p>
+          <ul>
+            <li><strong>مثال درست:</strong> <code>Terminanfrage – Aufenthaltstitel – Az: 123456 – Ali Ahmadi</code></li>
+            <li><strong>مثال اشتباه:</strong> <code>Hallo Hilfe bitte</code> (بدون شماره پرونده و مشخصات)</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="badge">قانون ۲: اطلاعات ضروری داخل ایمیل</span>
+          <h4>۵ موردی که همیشه باید در متن ایمیل باشد</h4>
+          <p>بدون این اطلاعات، کارمند اداره نمی‌تواند پرونده شما را پیدا کند:</p>
+          <ul>
+            <li>نام و نام خانوادگی کامل (طبق پاسپورت یا کارت اقامت)</li>
+            <li>تاریخ تولد (Geburtsdatum)</li>
+            <li>آدرس کامل و کد پستی (Adresse & PLZ)</li>
+            <li>شماره پرونده یا شماره مشتری (Aktenzeichen / Kundennummer / BG-Nummer)</li>
+            <li>شماره موبایل برای تماس (Telefonnummer)</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="badge">قانون ۳: ارسال مدارک (Anhang)</span>
+          <h4>نکات مهم هنگام فرستادن فایل و مدرک</h4>
+          <p>مدارک را با فرمت <strong>PDF</strong> بفرستید و نام فایل را واضح بگذارید (مثلاً <code>Pass_Ahmadi.pdf</code>).</p>
+          <ul>
+            <li>هیچ‌وقت اصل مدارک را با پست عادی نفرستید؛ فقط کپی بفرستید.</li>
+            <li>از ایمیل ارسال‌شده و رسید پست (Einschreiben) اسکرین‌شات نگه دارید.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="lawyer-panel">
+        <h4>ساخت خودکار ایمیل رسمی آلمانی بر اساس شهر و مشکل انتخاب‌شده</h4>
+        <div class="wizard-grid">
+          <div>
+            <label for="userNameInput">نام و نام خانوادگی شما:</label>
+            <input type="text" id="userNameInput" placeholder="مثلاً: Ahmad Karimi" />
+          </div>
+          <div>
+            <label for="userDobInput">تاریخ تولد (Geburtsdatum):</label>
+            <input type="text" id="userDobInput" placeholder="مثلاً: 12.05.1995" />
+          </div>
+          <div>
+            <label for="userCaseInput">شماره پرونده / مشتری (Aktenzeichen / BG-Nr):</label>
+            <input type="text" id="userCaseInput" placeholder="در صورت داشتن وارد کنید" />
+          </div>
+          <div>
+            <label for="userPhoneInput">شماره تماس شما:</label>
+            <input type="text" id="userPhoneInput" placeholder="مثلاً: 0152..." />
+          </div>
+        </div>
+        <div class="btn-row" style="margin-bottom: 12px;">
+          <button class="btn" id="btnBuildEmail">تولید ایمیل آلمانی آماده</button>
+          <button class="btn-outline" id="btnCopyGeneratedEmail">کپی کامل ایمیل</button>
+        </div>
+        <textarea id="generatedEmailArea" placeholder="ایمیل رسمی شما اینجا ساخته می‌شود..."></textarea>
+        <div id="copyNotice" style="color: var(--ok); font-size: 0.85rem; margin-top: 6px;"></div>
+      </div>
+    </section>
+
+    <!-- 4. Refugee Aid Organizations Across Germany -->
+    <section class="section-block view-section" data-view="ngo-directory">
+      <div class="section-header">
+        <h3>۴. مؤسسات و سازمان‌های حامی پناهجویان در سراسر آلمان (رایگان و محرمانه)</h3>
+        <span>این مراکز بدون دریافت هزینه به پناهجویان مشاوره حقوقی، اجتماعی و اداری می‌دهند</span>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <span class="badge">مشاوره پناهندگی</span>
+          <h4>Asylverfahrensberatung (AVB) — Caritas, Diakonie, DRK, AWO</h4>
+          <p>مراکز رسمی و مستقل مشاوره روند پناهندگی در تمام ایالت‌ها و شهرهای آلمان.</p>
+          <ul>
+            <li>آماده‌سازی کامل برای مصاحبه اصلی BAMF (Anhörung)</li>
+            <li>بررسی نامه جواب (Bescheid) و کمک برای یافتن وکیل در صورت رد شدن</li>
+            <li>مشاوره درباره انتقال دوبلین (Dublin-Verfahren) و الحاق خانواده</li>
+          </ul>
+          <div class="meta-line"><strong>جستجو در شهر شما:</strong> <code>Asylberatung Caritas / Diakonie + نام شهر</code></div>
+        </article>
+
+        <article class="card">
+          <span class="badge">مهاجران بالای ۲۷ سال</span>
+          <h4>Migrationsberatung für erwachsene Zuwanderer (MBE)</h4>
+          <p>مشاوره رایگان برای افرادی که اقامت گرفته‌اند یا در حال ادغام در جامعه هستند.</p>
+          <ul>
+            <li>کمک در پر کردن فرم‌های Jobcenter، مسکن، بیمه و کلاس زبان</li>
+            <li>راهنمایی برای کاریابی، معادل‌سازی مدرک و امور خانواده</li>
+          </ul>
+          <div class="meta-line"><strong>پوشش:</strong> تمام ۱۶ ایالت و بیش از ۱۰۰۰ دفتر محلی در آلمان</div>
+        </article>
+
+        <article class="card">
+          <span class="badge">جوانان زیر ۲۷ سال</span>
+          <h4>Jugendmigrationsdienste (JMD)</h4>
+          <p>حمایت ویژه از نوجوانان و جوانان پناهجو و مهاجر (۱۲ تا ۲۷ سال).</p>
+          <ul>
+            <li>راهنمایی مدرسه، دوره آموزشی (Ausbildung)، دانشگاه و زبان</li>
+            <li>همراهی در حل مشکلات اداری و خانوادگی</li>
+          </ul>
+          <div class="meta-line"><strong>وب‌سایت رسمی:</strong> <a href="https://www.jugendmigrationsdienste.de" target="_blank" rel="noopener">jugendmigrationsdienste.de</a></div>
+        </article>
+
+        <article class="card">
+          <span class="badge">شورای پناهندگان ایالتی</span>
+          <h4>Landesflüchtlingsräte & PRO ASYL</h4>
+          <p>نهادهای مستقل مدافع حقوق پناهجویان در هر ایالت آلمان.</p>
+          <ul>
+            <li>پشتیبانی تخصصی در پرونده‌های پیچیده حقوقی و جلوگیری از اخراج</li>
+            <li>معرفی وکلای متخصص حقوق پناهندگی (Fachanwalt für Migrationsrecht)</li>
+            <li>تلفن مشاوره PRO ASYL (دوشنبه تا جمعه ۱۰ تا ۱۲): <code>069 / 24 23 14 20</code></li>
+          </ul>
+          <div class="meta-line"><strong>وب‌سایت رسمی:</strong> <a href="https://www.proasyl.de" target="_blank" rel="noopener">proasyl.de</a> | <a href="https://www.fluechtlingsrat.de" target="_blank" rel="noopener">fluechtlingsrat.de</a></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5. Emergency & National Helplines -->
+    <section class="section-block view-section" data-view="emergency">
+      <div class="section-header">
+        <h3>۵. شماره‌های ضروری، اضطراری و خطوط کمک در کل آلمان</h3>
+        <span>رایگان و قابل تماس از تمام ایالت‌ها و شهرها</span>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <span class="badge badge-danger">اورژانس و امنیت</span>
+          <h4>شماره‌های اضطراری شبانه‌روزی</h4>
+          <ul>
+            <li><strong>112:</strong> اورژانس پزشکی، آمبولانس و آتش‌نشانی (رایگان)</li>
+            <li><strong>110:</strong> پلیس آلمان (رایگان)</li>
+            <li><strong>116 117:</strong> پزشک کشیک در شب، آخر هفته و تعطیلات (رایگان)</li>
+            <li><strong>116 116:</strong> مسدود کردن فوری کارت بانکی و مدارک الکترونیکی</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="badge">مشاوره و حمایت رایگان</span>
+          <h4>تلفن‌های راهنما و بحران</h4>
+          <ul>
+            <li><strong>115:</strong> خط سراسری پاسخ‌گویی ادارات و شهرداری‌ها</li>
+            <li><strong>0800 4 5555 00:</strong> اداره کار فدرال (Agentur für Arbeit - رایگان)</li>
+            <li><strong>0800 4 5555 30:</strong> صندوق خانواده / Kindergeld (رایگان)</li>
+            <li><strong>0800 111 0 111:</strong> مشاوره تلفنی رایگان و محرمانه (۲۴ ساعته)</li>
+            <li><strong>116 016:</strong> خط کمک به زنان در برابر خشونت (چندزبانه و رایگان)</li>
+          </ul>
+        </article>
+      </div>
     </section>
   </main>
 
   <footer>
-    Mein Helfer Deutschland — نسخه وب آزمایشی (`index.html`)
+    Mein Helfer Deutschland — پورتال جامع راهنمای پناهجویان، شهرها و ادارات ۱۶ ایالت آلمان
   </footer>
 
   <script>
-    const items = [
-      {
-        cat: "offices",
-        tag: "ادارات دولتی",
-        title: "Rathaus & Bürgerbüro",
-        desc: "ثبت آدرس محل سکونت (Anmeldung)، امور هویتی و دریافت مدارک شهری."
+    const germanyData = {
+      "Nordrhein-Westfalen (NRW)": {
+        capital: "Düsseldorf",
+        council: "Flüchtlingsrat NRW (fluechtlingsrat-nrw.de)",
+        portal: "https://www.mkjfgfi.nrw",
+        cities: ["Düsseldorf", "Köln", "Dortmund", "Essen", "Duisburg", "Bochum", "Wuppertal", "Bielefeld", "Bonn", "Münster", "Mönchengladbach", "Aachen", "Gelsenkirchen", "Krefeld", "Oberhausen", "Hagen", "Hamm", "Mülheim an der Ruhr", "Solingen", "Leverkusen", "Neuss", "Paderborn", "Viersen", "Schwalmtal"]
       },
-      {
-        cat: "offices",
-        tag: "ادارات دولتی",
-        title: "Ausländerbehörde",
-        desc: "رسیدگی به امور اقامت، تمدید ویزا و مجوزهای اقامتی."
+      "Bayern": {
+        capital: "München",
+        council: "Bayerischer Flüchtlingsrat (fluechtlingsrat-bayern.de)",
+        portal: "https://www.stmi.bayern.de",
+        cities: ["München", "Nürnberg", "Augsburg", "Regensburg", "Ingolstadt", "Würzburg", "Fürth", "Erlangen", "Bamberg", "Bayreuth", "Landshut", "Aschaffenburg", "Kempten", "Rosenheim", "Passau"]
       },
-      {
-        cat: "social",
-        tag: "خدمات اجتماعی",
-        title: "Jobcenter & Arbeitsagentur",
-        desc: "حمایت‌های کاریابی، دوره‌های آموزشی و کمک‌هزینه‌های مرتبط."
+      "Baden-Württemberg": {
+        capital: "Stuttgart",
+        council: "Flüchtlingsrat Baden-Württemberg (fluechtlingsrat-bw.de)",
+        portal: "https://im.baden-wuerttemberg.de",
+        cities: ["Stuttgart", "Karlsruhe", "Mannheim", "Freiburg im Breisgau", "Heidelberg", "Ulm", "Heilbronn", "Pforzheim", "Reutlingen", "Esslingen", "Tübingen", "Konstanz", "Ludwigsburg"]
       },
-      {
-        cat: "social",
-        tag: "خدمات اجتماعی",
-        title: "Krankenkasse",
-        desc: "بیمه درمانی قانونی در آلمان، انتخاب پزشک و دریافت کارت بیمه."
+      "Berlin": {
+        capital: "Berlin",
+        council: "Flüchtlingsrat Berlin (fluechtlingsrat-berlin.de)",
+        portal: "https://www.berlin.de/laf/",
+        cities: ["Berlin (Mitte)", "Berlin (Charlottenburg-Wilmersdorf)", "Berlin (Friedrichshain-Kreuzberg)", "Berlin (Neukölln)", "Berlin (Spandau)", "Berlin (Tempelhof-Schöneberg)", "Berlin (Pankow)", "Berlin (Lichtenberg)", "Berlin (Reinickendorf)", "Berlin (Steglitz-Zehlendorf)", "Berlin (Treptow-Köpenick)", "Berlin (Marzahn-Hellersdorf)"]
       },
-      {
-        cat: "letters",
-        tag: "نامه‌ها",
-        title: "درک نامه‌های اداری (Bescheid)",
-        desc: "توجه به تاریخ مهلت پاسخ (Frist)، شماره پرونده و نوع درخواست."
+      "Hessen": {
+        capital: "Wiesbaden",
+        council: "Hessischer Flüchtlingsrat (fr-hessen.de)",
+        portal: "https://innen.hessen.de",
+        cities: ["Frankfurt am Main", "Wiesbaden", "Kassel", "Darmstadt", "Offenbach am Main", "Hanau", "Gießen", "Marburg", "Fulda", "Rüsselsheim"]
       },
-      {
-        cat: "letters",
-        tag: "نامه‌ها",
-        title: "درخواست وقت قبلی (Termin)",
-        desc: "ارسال ایمیل یا پیام رسمی برای رزرو نوبت مراجعه حضوری."
+      "Niedersachsen": {
+        capital: "Hannover",
+        council: "Flüchtlingsrat Niedersachsen (nds-fluerat.org)",
+        portal: "https://www.mi.niedersachsen.de",
+        cities: ["Hannover", "Braunschweig", "Oldenburg", "Osnabrück", "Wolfsburg", "Göttingen", "Salzgitter", "Hildesheim", "Delmenhorst", "Wilhelmshaven", "Lüneburg", "Celle"]
+      },
+      "Rheinland-Pfalz": {
+        capital: "Mainz",
+        council: "Flüchtlingsrat RLP (fluechtlingsrat-rlp.de)",
+        portal: "https://mffki.rlp.de",
+        cities: ["Mainz", "Ludwigshafen am Rhein", "Koblenz", "Trier", "Kaiserslautern", "Worms", "Neuwied", "Speyer", "Bad Kreuznach"]
+      },
+      "Sachsen": {
+        capital: "Dresden",
+        council: "Sächsischer Flüchtlingsrat (saechsischer-fluechtlingsrat.de)",
+        portal: "https://www.sms.sachsen.de",
+        cities: ["Dresden", "Leipzig", "Chemnitz", "Zwickau", "Plauen", "Görlitz", "Bautzen", "Freiberg"]
+      },
+      "Schleswig-Holstein": {
+        capital: "Kiel",
+        council: "Flüchtlingsrat Schleswig-Holstein (frsh.de)",
+        portal: "https://www.schleswig-holstein.de",
+        cities: ["Kiel", "Lübeck", "Flensburg", "Neumünster", "Norderstedt", "Elmshorn", "Pinneberg", "Itzehoe"]
+      },
+      "Brandenburg": {
+        capital: "Potsdam",
+        council: "Flüchtlingsrat Brandenburg (fluechtlingsrat-brandenburg.de)",
+        portal: "https://msgiv.brandenburg.de",
+        cities: ["Potsdam", "Cottbus", "Brandenburg an der Havel", "Frankfurt (Oder)", "Oranienburg", "Falkensee", "Eberswalde"]
+      },
+      "Sachsen-Anhalt": {
+        capital: "Magdeburg",
+        council: "Flüchtlingsrat Sachsen-Anhalt (fluechtlingsrat-lsa.de)",
+        portal: "https://ms.sachsen-anhalt.de",
+        cities: ["Magdeburg", "Halle (Saale)", "Dessau-Roßlau", "Wittenberg", "Halberstadt", "Stendal"]
+      },
+      "Thüringen": {
+        capital: "Erfurt",
+        council: "Flüchtlingsrat Thüringen (fluechtlingsrat-thr.de)",
+        portal: "https://migrationsbeauftragter.thueringen.de",
+        cities: ["Erfurt", "Jena", "Gera", "Weimar", "Gotha", "Nordhausen", "Eisenach", "Suhl"]
+      },
+      "Hamburg": {
+        capital: "Hamburg",
+        council: "Flüchtlingsrat Hamburg (fluechtlingsrat-hamburg.de)",
+        portal: "https://www.hamburg.de/fluechtlinge/",
+        cities: ["Hamburg (Mitte)", "Hamburg (Altona)", "Hamburg (Eimsbüttel)", "Hamburg (Nord)", "Hamburg (Wandsbek)", "Hamburg (Bergedorf)", "Hamburg (Harburg)"]
+      },
+      "Mecklenburg-Vorpommern": {
+        capital: "Schwerin",
+        council: "Flüchtlingsrat MV (fluechtlingsrat-mv.de)",
+        portal: "https://www.regierung-mv.de",
+        cities: ["Rostock", "Schwerin", "Neubrandenburg", "Stralsund", "Greifswald", "Wismar"]
+      },
+      "Saarland": {
+        capital: "Saarbrücken",
+        council: "Saarländischer Flüchtlingsrat (fluechtlingsrat-saar.de)",
+        portal: "https://www.saarland.de",
+        cities: ["Saarbrücken", "Neunkirchen", "Homburg", "Völklingen", "Sankt Ingbert", "Saarlouis"]
+      },
+      "Bremen": {
+        capital: "Bremen",
+        council: "Flüchtlingsrat Bremen (fluechtlingsrat-bremen.de)",
+        portal: "https://www.soziales.bremen.de",
+        cities: ["Bremen", "Bremerhaven"]
       }
-    ];
+    };
 
-    let activeCat = "all";
-    const grid = document.getElementById("cardsGrid");
-    const searchInput = document.getElementById("searchInput");
-    const tabs = document.querySelectorAll(".tab-btn");
+    const problemGuides = {
+      asyl_bamf: {
+        title: "راهنمای کامل پناهندگی و مصاحبه BAMF",
+        steps: [
+          "۱. آمادگی برای مصاحبه اصلی (Anhörung): تمام دلایل شخصی، خطرات واقعی در کشور مبدأ، تاریخ‌ها و مدارک را منظم بنویسید. هرگز داستان غیرواقعی یا متناقض نگویید.",
+          "۲. حق داشتن مترجم و فرد همراه (Beistand): در مصاحبه BAMF حق دارید یک فرد مورد اعتماد یا مشاور اجتماعی همراه ببرید و اگر مترجم را متوجه نشدید، همان لحظه اعلام کنید و در پروتکل ثبت نمایید.",
+          "۳. بررسی پروتکل مصاحبه (Niederschrift): قبل از امضا، بخواهید متن آلمانی را خط‌به‌خط برایتان ترجمه کنند و اشتباهات را همان‌جا اصلاح کنید.",
+          "۴. مراجعه فوری به مرکز مشاوره پناهجویان (Asylverfahrensberatung - Caritas / Diakonie / DRK) در شهر خود پیش از مصاحبه."
+        ],
+        docs: "کارت پناهجویی (Aufenthaltsgestattung)، دعوت‌نامه مصاحبه BAMF، تمام مدارک هویتی، پزشکی یا شواهد پرونده.",
+        warning: "هرگونه تغییر آدرس را فوراً به BAMF و Ausländerbehörde اطلاع دهید؛ اگر نامه دعوت مصاحبه به دستتان نرسد، ممکن است پرونده بسته شود!",
+        emailSubject: "Mitteilung / Anfrage zum Asylverfahren – Aktenzeichen: [شماره پرونده BAMF]",
+        emailBody: (city, state, name, dob, caseNo, phone) =>
+`Sehr geehrte Damen und Herren,
 
-    function renderCards() {
-      const q = searchInput.value.trim().toLowerCase();
-      const filtered = items.filter((item) => {
-        const matchCat = activeCat === "all" || item.cat === activeCat;
-        const matchText =
-          item.title.toLowerCase().includes(q) ||
-          item.desc.toLowerCase().includes(q) ||
-          item.tag.toLowerCase().includes(q);
-        return matchCat && matchText;
+bezugnehmend auf mein Asylverfahren (Aktenzeichen: ${caseNo || "[شماره پرونده BAMF]"}) möchte ich Ihnen folgende Mitteilung machen / um einen Termin bitten:
+[توضیح کوتاه درخواست، مثلاً: Adressänderung / Einreichung neuer Unterlagen].
+
+Meine persönlichen Daten:
+Name, Vorname: ${name || "[نام و نام خانوادگی]"}
+Geburtsdatum: ${dob || "[تاریخ تولد]"}
+Wohnort / Bundesland: ${city}, ${state}
+Telefonnummer: ${phone || "[شماره تماس]"}
+
+Im Anhang sende ich Ihnen die entsprechenden Nachweise im PDF-Format.
+
+Mit freundlichen Grüßen
+${name || "[نام و نام خانوادگی]"}`
+      },
+
+      abgelehnt: {
+        title: "اقدام فوری در برابر جواب منفی (Ablehnungsbescheid) یا مهلت کوتاه",
+        steps: [
+          "۱. پاکت زردرنگ نامه (Zustellungsurkunde) را نگه دارید! تاریخ نوشته شده روی پاکت زرد، شروع محاسبه مهلت قانونی اعتراض (Klagefrist) است.",
+          "۲. مهلت اعتراض بسیار کوتاه است: در رد معمولی معمولاً ۲ هفته (14 Tage) و در رد «آشکارا بی‌اساس» (offensichtlich unbegründet) فقط ۱ هفته (7 Tage) فرصت دارید در دادگاه اداری (Verwaltungsgericht) شکایت ثبت کنید!",
+          "۳. همین امروز به وکیل متخصص حقوق پناهندگی (Fachanwalt für Migrationsrecht) یا دفتر مشاوره Caritas / Diakonie / Flüchtlingsrat ایالت خود مراجعه کنید.",
+          "۴. حتی اگر هنوز وکیل پیدا نکرده‌اید، خودتان به همراه یک مشاور می‌توانید پیش از پایان مهلت، اعتراض اولیه را در دفتر ثبت دادگاه اداری (Rechtsantragstelle des Verwaltungsgerichts) ثبت کنید تا مهلت نسوزد."
+        ],
+        docs: "تمام صفحات نامه جواب (Bescheid)، پاکت زردرنگ پست، کارت پناهجویی / Duldung، و مدارک پزشکی یا جدید.",
+        warning: "خطر جدی: اگر حتی یک روز از مهلت ۷ روزه یا ۱۴ روزه بگذرد، حکم قطعی می‌شود! به هیچ وجه منتظر نمانید.",
+        emailSubject: "DRINGEND: Anfrage auf Rechtsberatung / Klagefrist – Bescheid vom [تاریخ نامه]",
+        emailBody: (city, state, name, dob, caseNo, phone) =>
+`Sehr geehrte Damen und Herren,
+
+ich habe einen Ablehnungsbescheid des BAMF erhalten (Zugang laut gelbem Umschlag am: [تاریخ روی پاکت زرد]). Da die Klagefrist sehr kurz ist, bitte ich dringend um einen Beratungstermin bzw. anwaltliche Unterstützung.
+
+Meine Daten:
+Name, Vorname: ${name || "[نام و نام خانوادگی]"}
+Geburtsdatum: ${dob || "[تاریخ تولد]"}
+Aktenzeichen: ${caseNo || "[شماره پرونده]"}
+Wohnort: ${city} (${state})
+Telefonnummer: ${phone || "[شماره تماس]"}
+
+Den Bescheid und den gelben Umschlag habe ich als PDF beigefügt.
+
+Mit freundlichen Grüßen
+${name || "[نام و نام خانوادگی]"}`
+      },
+
+      auslaender: {
+        title: "راهنمای تمدید اقامت، کارت اقامت، Duldung و اجازه کار",
+        steps: [
+          "۱. حداقل ۶ تا ۸ هفته قبل از پایان اعتبار کارت اقامت یا Duldung، به صورت کتبی (ایمیل + نامه) از Ausländerbehörde شهر خود درخواست تمدید (Verlängerung) و نوبت (Termin) کنید.",
+          "۲. نکته قانونی مهم: طبق ماده ۸۱ قانون اقامت آلمان (Fiktionswirkung)، اگر درخواست تمدید را پیش از تاریخ انقضا ارسال کنید و مدرک ارسال داشته باشید، اقامت شما تا زمان نوبت معتبر می‌ماند.",
+          "۳. برای دریافت اجازه کار (Beschäftigungserlaubnis)، قرارداد یا پیشنهاد کاری (Stellenbeschreibung) را از کارفرما بگیرید و برای Ausländerbehörde بفرستید.",
+          "۴. در صورت داشتن Duldung، روی رفع موانع هویتی (Passbeschaffung) یا مسیرهای قانونی تبدیل وضعیت مثل Ausbildung / کار تمرکز کنید."
+        ],
+        docs: "پاسپورت یا مدرک شناسایی، کارت اقامت یا Duldung فعلی، برگه ثبت آدرس (Meldebescheinigung)، قرارداد اجاره، گواهی درآمد یا نامه Jobcenter.",
+        warning: "هرگز نگذارید تاریخ کارت بگذرد و بعد اقدام کنید. رسید ایمیل یا پست سفارشی (Einschreiben) را همیشه ذخیره کنید.",
+        emailSubject: "Antrag auf Verlängerung des Aufenthaltstitels / Terminanfrage – ${name}",
+        emailBody: (city, state, name, dob, caseNo, phone) =>
+`Sehr geehrte Damen und Herren der Ausländerbehörde ${city},
+
+hiermit beantrage ich rechtzeitig die Verlängerung meines Aufenthaltstitels / meiner Aufenthaltsgestattung / Duldung und bitte um einen persönlichen Termin.
+
+Meine persönlichen Daten:
+Name, Vorname: ${name || "[نام و نام خانوادگی]"}
+Geburtsdatum: ${dob || "[تاریخ تولد]"}
+Aktenzeichen / Ausländerzentralregisternummer: ${caseNo || "[شماره پرونده]"}
+Aktuelle Adresse: ${city}, ${state}
+Telefonnummer: ${phone || "[شماره تماس]"}
+
+Die erforderlichen Unterlagen (Passkopie, aktueller Ausweis, Meldebescheinigung) sind als PDF beigefügt.
+
+Mit freundlichen Grüßen
+${name || "[نام و نام خانوادگی]"}`
+      },
+
+      jobcenter_sozial: {
+        title: "حل مشکلات Jobcenter و Sozialamt (قطع کمک‌هزینه، اجاره یا مدارک)",
+        steps: [
+          "۱. تمام نامه‌های Jobcenter یا Sozialamt را بررسی کنید: اگر مدرکی خواسته‌اند (Mitwirkungspflicht)، تا تاریخ مشخص‌شده بفرستید تا پول شما قطع نشود.",
+          "۲. اگر کمک‌هزینه شما بدون دلیل یا اشتباه محاسبه شده، ظرف ۱ ماه (1 Monat) از تاریخ نامه، حق دارید اعتراض رسمی (Widerspruch) ثبت کنید.",
+          "۳. اگر حساب شما خالی است و پول این ماه واریز نشده، با شماره مشتری (BG-Nummer) حضوری یا تلفنی درخواست پرداخت فوری / علی‌الحساب (Vorschuss / Barauszahlung) بدهید.",
+          "۴. برای دریافت کمک هزینه لباس، وسایل خانه اولیه (Erstausstattung) یا هزینه کلاس زبان و رفت‌وآمد، باید درخواست کتبی جداگانه (Antrag) بدهید."
+        ],
+        docs: "نامه تصمیم (Bewilligungsbescheid / Änderungsbescheid)، شماره پرونده (BG-Nummer / Aktenzeichen)، پرینت حساب بانکی (Kontoauszüge) در صورت درخواست.",
+        warning: "بدون اطلاع قبلی به Jobcenter یا Sozialamt به مسافرت خارج از شهر یا خارج از آلمان نروید (Ortsabwesenheit)؛ در غیر این صورت پول آن روزها پس گرفته می‌شود.",
+        emailSubject: "Anfrage / Unterlagen zu BG-Nummer: [شماره BG] – ${name}",
+        emailBody: (city, state, name, dob, caseNo, phone) =>
+`Sehr geehrte Damen und Herren des Jobcenters / Sozialamts ${city},
+
+bezugnehmend auf meine Akte (BG-Nummer / Aktenzeichen: ${caseNo || "[شماره پرونده یا BG]"}) übersende ich Ihnen hiermit die angeforderten Unterlagen / bitte ich um Prüfung meines Anliegens:
+[توضیح کوتاه: مثلاً Auszahlung der Leistungen / Kostenübernahme der Miete].
+
+Meine Daten:
+Name, Vorname: ${name || "[نام و نام خانوادگی]"}
+Geburtsdatum: ${dob || "[تاریخ تولد]"}
+Adresse: ${city}, ${state}
+Telefonnummer: ${phone || "[شماره تماس]"}
+
+Bitte bestätigen Sie mir den Eingang dieses Schreibens.
+
+Mit freundlichen Grüßen
+${name || "[نام و نام خانوادگی]"}`
+      },
+
+      wohnung: {
+        title: "پیدا کردن خانه و گرفتن تأییدیه اجاره از Jobcenter / Sozialamt",
+        steps: [
+          "۱. مهم‌ترین قانون: هیچ قرارداد اجاره‌ای (Mietvertrag) را قبل از تأیید کتبی Jobcenter یا Sozialamt امضا نکنید!",
+          "۲. ابتدا از صاحب‌خانه یک پیش‌قرارداد یا فرم مشخصات خانه (Mietangebot / Mietbescheinigung) بگیرید که متراژ، اجاره سرد (Kaltmiete)، هزینه جانبی (Nebenkosten) و هزینه گرمایش (Heizkosten) در آن نوشته شده باشد.",
+          "۳. این برگه را به Jobcenter / Sozialamt شهر خود بدهید تا برگه تأییدیه پرداخت اجاره (Zusicherung zur Kostenübernahme) صادر کنند؛ بعد قرارداد را امضا کنید.",
+          "۴. هم‌زمان برای مسکن اجتماعی (Sozialwohnung) از اداره مسکن شهر خود درخواست گواهی WBS (Wohnberechtigungsschein) بدهید."
+        ],
+        docs: "پیشنهاد اجاره (Mietangebot)، کارت شناسایی/اقامت، نامه Jobcenter/Sozialamt، گواهی عدم بدهی اجاره قبلی (Mietschuldenfreiheitsbescheinigung).",
+        warning: "اگر بدون اجازه کتبی Jobcenter قرارداد امضا کنید، ممکن است هزینه جابه‌جایی، ودیعه (Kaution) و مابه‌التفاوت اجاره پرداخت نشود.",
+        emailSubject: "Antrag auf Zusicherung der Mietkosten (Mietangebot) – BG-Nr: [شماره BG]",
+        emailBody: (city, state, name, dob, caseNo, phone) =>
+`Sehr geehrte Damen und Herren,
+
+ich habe ein Wohnungsangebot in ${city} erhalten und bitte um Prüfung sowie schriftliche Zusicherung der Kostenübernahme (Miete und Kaution) vor Vertragsunterzeichnung.
+
+Meine Daten:
+Name, Vorname: ${name || "[نام و نام خانوادگی]"}
+Geburtsdatum: ${dob || "[تاریخ تولد]"}
+BG-Nummer / Aktenzeichen: ${caseNo || "[شماره پرونده]"}
+Telefonnummer: ${phone || "[شماره تماس]"}
+
+Das ausgefüllte Mietangebot habe ich als PDF beigefügt.
+
+Mit freundlichen Grüßen
+${name || "[نام و نام خانوادگی]"}`
+      },
+
+      familie: {
+        title: "الحاق خانواده (Familiennachzug)، ثبت ازدواج و تولد فرزند",
+        steps: [
+          "۱. برای پناهندگان به رسمیت شناخته‌شده (قبولی سه ساله یا یک‌ساله): ظرف ۳ ماه اول پس از دریافت نامه قبولی BAMF، درخواست حفظ مهلت الحاق خانواده (Fristwahrende Anzeige) را در پورتال وزارت خارجه آلمان ثبت کنید تا شرط داشتن خانه بزرگ و درآمد بالا معاف شود!",
+          "۲. هم‌زمان برای همسر یا فرزندان زیر ۱۸ سال در سفارت آلمان کشور مربوطه نوبت ویزا رزرو کنید.",
+          "۳. برای ثبت تولد نوزاد در آلمان، ظرف ۱ هفته به اداره ثبت احوال (Standesamt) شهر خود مراجعه کنید تا گواهی تولد (Geburtsurkunde) صادر شود و سپس برای Kindergeld اقدام کنید."
+        ],
+        docs: "نامه قبولی BAMF، کارت اقامت، سند ازدواج رسمی و ترجمه‌شده، پاسپورت اعضای خانواده، شناسنامه فرزندان.",
+        warning: "مهلت ۳ ماهه پس از قبولی پناهندگی برای ثبت Fristwahrende Anzeige بسیار مهم است و شرایط مالی را آسان می‌کند.",
+        emailSubject: "Anfrage / Unterlagen zum Familiennachzug – Aktenzeichen: [شماره پرونده]",
+        emailBody: (city, state, name, dob, caseNo, phone) =>
+`Sehr geehrte Damen und Herren,
+
+hiermit wende ich mich bezüglich des Familiennachzugs meiner Familienangehörigen an Sie und bitte um Auskunft über den aktuellen Bearbeitungsstand / die erforderlichen Unterlagen.
+
+Meine Daten:
+Name, Vorname: ${name || "[نام و نام خانوادگی]"}
+Geburtsdatum: ${dob || "[تاریخ تولد]"}
+Aktenzeichen: ${caseNo || "[شماره پرونده]"}
+Wohnort: ${city}, ${state}
+Telefonnummer: ${phone || "[شماره تماس]"}
+
+Mit freundlichen Grüßen
+${name || "[نام و نام خانوادگی]"}`
+      },
+
+      gesundheit: {
+        title: "بیمه درمانی، مراجعه به پزشک، درمان روانی و مدارک پزشکی",
+        steps: [
+          "۱. اگر کارت بیمه سلامت (Elektronische Gesundheitskarte - eGK) دارید، مستقیم می‌توانید به پزشک عمومی (Hausarzt) یا متخصص مراجعه کنید.",
+          "۲. اگر در ۱۵ تا ۳۶ ماه اول پناهجویی هستید و هنوز کارت بیمه ندارید، از Sozialamt شهر خود برگه درمان (Behandlungsschein) بگیرید؛ در موارد اورژانسی بدون برگه به بیمارستان بروید.",
+          "۳. اگر بیماری جسمی یا روحی جدی دارید که مانع بازگشت یا کار می‌شود، از پزشک متخصص گواهی پزشکی دقیق (Qualifiziertes ärztliches Attest) بگیرید."
+        ],
+        docs: "کارت بیمه سلامت یا برگه Behandlungsschein از Sozialamt، کارت شناسایی، لیست داروها.",
+        warning: "برای مشکلات روانی و ترومای ناشی از جنگ یا مهاجرت، مراکز تخصصی PSZ (Psychosoziale Zentren für Flüchtlinge) در هر ایالت به صورت رایگان و با مترجم کمک می‌کنند.",
+        emailSubject: "Antrag auf Behandlungsschein / Kostenübernahme medizinischer Behandlung",
+        emailBody: (city, state, name, dob, caseNo, phone) =>
+`Sehr geehrte Damen und Herren,
+
+ich benötige dringend eine ärztliche Behandlung und bitte um Ausstellung eines Behandlungsscheins / Übernahme der Behandlungskosten.
+
+Meine Daten:
+Name, Vorname: ${name || "[نام و نام خانوادگی]"}
+Geburtsdatum: ${dob || "[تاریخ تولد]"}
+Aktenzeichen: ${caseNo || "[شماره پرونده]"}
+Wohnort: ${city}, ${state}
+Telefonnummer: ${phone || "[شماره تماس]"}
+
+Mit freundlichen Grüßen
+${name || "[نام و نام خانوادگی]"}`
+      },
+
+      arbeit_schule: {
+        title: "کلاس زبان (Integrationskurs)، کار، Ausbildung و معادل‌سازی مدرک",
+        steps: [
+          "۱. برای شرکت در کلاس زبان آلمانی (Integrationskurs)، برگه اجازه (Berechtigungsschein) را از BAMF یا Jobcenter بگیرید و در آموزشگاه‌های زبان (VHS, Berlitz, AWO و غیره) در شهر خود ثبت‌نام کنید.",
+          "۲. برای یادگیری حرفه و دریافت حقوق هم‌زمان، به دنبال دوره کارآموزی (Ausbildung) باشید؛ دوره Ausbildung حتی برای افراد دارای Duldung نیز یکی از بهترین مسیرهای گرفتن اقامت قانونی است.",
+          "۳. اگر مدرک دانشگاهی یا فنی از کشور خود دارید، از طریق پورتال رسمی Anerkennung in Deutschland و مراکز مشاوره IQ Netzwerk در ایالت خود آن را معادل‌سازی کنید."
+        ],
+        docs: "کارت اقامت یا Duldung، رزومه آلمانی (Lebenslauf)، مدارک تحصیلی و شغلی قبلی، گواهی زبان.",
+        warning: "قبل از شروع هر کاری، مطمئن شوید روی کارت اقامت یا برگه ضمیمه (Zusatzblatt) عبارت «Erwerbstätigkeit gestattet» یا اجازه کار درج شده باشد.",
+        emailSubject: "Antrag auf Zulassung zum Integrationskurs / Beratung Ausbildung – ${name}",
+        emailBody: (city, state, name, dob, caseNo, phone) =>
+`Sehr geehrte Damen und Herren,
+
+ich möchte meine Deutschkenntnisse verbessern und mich beruflich integrieren. Hiermit beantrage ich die Zulassung zu einem Integrationskurs / einen Beratungstermin bezüglich Arbeit und Ausbildung in ${city}.
+
+Meine Daten:
+Name, Vorname: ${name || "[نام و نام خانوادگی]"}
+Geburtsdatum: ${dob || "[تاریخ تولد]"}
+Aktenzeichen / Kundennummer: ${caseNo || "[شماره پرونده]"}
+Adresse: ${city}, ${state}
+Telefonnummer: ${phone || "[شماره تماس]"}
+
+Mit freundlichen Grüßen
+${name || "[نام و نام خانوادگی]"}`
+      }
+    };
+
+    const stateSelect = document.getElementById("stateSelect");
+    const citySelect = document.getElementById("citySelect");
+    const customCityInput = document.getElementById("customCityInput");
+    const problemSelect = document.getElementById("problemSelect");
+
+    function populateStates() {
+      Object.keys(germanyData).forEach((stateName) => {
+        const opt = document.createElement("option");
+        opt.value = stateName;
+        opt.textContent = stateName;
+        stateSelect.appendChild(opt);
       });
-
-      grid.innerHTML = filtered.length
-        ? filtered
-            .map(
-              (item) => `
-          <article class="card">
-            <span class="tag">${item.tag}</span>
-            <h3>${item.title}</h3>
-            <p>${item.desc}</p>
-          </article>
-        `
-            )
-            .join("")
-        : `<div class="card"><p>موردی با این مشخصات پیدا نشد.</p></div>`;
     }
 
-    tabs.forEach((btn) => {
+    function populateCities(stateName) {
+      citySelect.innerHTML = "";
+      const list = germanyData[stateName]?.cities || [];
+      list.forEach((city) => {
+        const opt = document.createElement("option");
+        opt.value = city;
+        opt.textContent = city;
+        citySelect.appendChild(opt);
+      });
+    }
+
+    function getActiveLocation() {
+      const state = stateSelect.value;
+      const customCity = customCityInput.value.trim();
+      const city = customCity || citySelect.value || germanyData[state].capital;
+      return { state, city, info: germanyData[state] };
+    }
+
+    function renderAllGuidance() {
+      const { state, city, info } = getActiveLocation();
+      const problemKey = problemSelect.value;
+      const guide = problemGuides[problemKey];
+
+      // 1. Update City & State Offices + Refugee NGOs
+      document.getElementById("citySectionTitle").textContent =
+        `۱. ادارات دولتی و مؤسسات حامی پناهجویان در شهر «${city}» — ایالت «${state}»`;
+      document.getElementById("citySectionSubtitle").textContent =
+        `مرکز ایالت: ${info.capital} | شورای پناهندگان ایالتی: ${info.council}`;
+
+      const cleanCity = city.replace(/\(.*?\)/g, "").trim();
+      const cards = [
+        {
+          badge: "اداره اتباع و اقامت",
+          title: `Ausländerbehörde ${cleanCity}`,
+          desc: `رسیدگی به کارت اقامت، تمدید Aufenthaltsgestattung / Duldung، اجازه کار و الحاق خانواده در ${cleanCity}.`,
+          items: [
+            "نوبت‌دهی اغلب آنلاین یا از طریق ایمیل و پست انجام می‌شود.",
+            "در مکاتبات حتماً نام، تاریخ تولد و شماره پرونده را بنویسید."
+          ],
+          mapQuery: `Ausländerbehörde ${cleanCity}`,
+          phone: "خط استعلام سراسری ادارات: 115 یا سایت شهرداری شهر"
+        },
+        {
+          badge: "حمایت مالی و کاریابی",
+          title: `Jobcenter & Sozialamt ${cleanCity}`,
+          desc: `پرداخت کمک‌هزینه زندگی، اجاره مسکن، بیمه درمانی و معرفی به کلاس زبان و کار در ${cleanCity}.`,
+          items: [
+            "Jobcenter: برای افرادی که قبولی پناهندگی یا اقامت دریافت کرده‌اند.",
+            "Sozialamt: برای پناهجویان در جریان پرونده (Asylbewerberleistungsgesetz)."
+          ],
+          mapQuery: `Jobcenter ${cleanCity}`,
+          phone: "تلفن سراسری اداره کار: 0800 4 5555 00 (رایگان)"
+        },
+        {
+          badge: "ثبت آدرس و شهرداری",
+          title: `Bürgerbüro / Rathaus ${cleanCity}`,
+          desc: `ثبت نشانی محل سکونت (Anmeldung / Ummeldung) و دریافت گواهی ثبت‌نام در ${cleanCity}.`,
+          items: [
+            "مدرک لازم: پاسپورت/کارت شناسایی + برگه تأییدیه صاحب‌خانه (Wohnungsgeberbestätigung).",
+            "ظرف ۲ هفته پس از جابه‌جایی به خانه جدید باید انجام شود."
+          ],
+          mapQuery: `Bürgerbüro Rathaus ${cleanCity}`,
+          phone: "خط خدمات شهروندی: 115"
+        },
+        {
+          badge: "مؤسسات پناهجویان در شهر شما",
+          title: `Asylberatung & Migrationsberatung ${cleanCity}`,
+          desc: `مراکز رایگان Caritas، Diakonie، DRK و AWO برای کمک به پناهجویان در ${cleanCity}.`,
+          items: [
+            "کمک رایگان در خواندن نامه‌ها، نوشتن ایمیل، آمادگی مصاحبه BAMF و معرفی وکیل.",
+            `شورای پناهندگان ایالت شما: ${info.council}`
+          ],
+          mapQuery: `Asylberatung Migrationsberatung Caritas Diakonie ${cleanCity}`,
+          phone: "مشاوره سراسری PRO ASYL: 069 / 24 23 14 20"
+        },
+        {
+          badge: "اداره فدرال مهاجرت و پناهندگی",
+          title: `BAMF (شعبه نزدیک به ${cleanCity} / ایالت ${state})`,
+          desc: `مسئول ثبت درخواست پناهندگی، مصاحبه اصلی (Anhörung)، صدور حکم و مجوز کلاس زبان.`,
+          items: [
+            "شماره تلفن مرکزی BAMF: 0911 943-0",
+            `پورتال رسمی ایالت ${state}: قابل مشاهده در لینک پایین`
+          ],
+          mapQuery: `BAMF Außenstelle ${cleanCity} ${state}`,
+          phone: "0911 943-0",
+          extraLink: info.portal
+        },
+        {
+          badge: "آموزش زبان و ادغام",
+          title: `Volkshochschule (VHS) & Sprachschulen ${cleanCity}`,
+          desc: `برگزاری دوره‌های زبان آلمانی (A1 تا B2)، دوره ادغام (Integrationskurs) و آزمون زندگی در آلمان.`,
+          items: [
+            "ثبت‌نام با برگه Berechtigungsschein از BAMF یا Jobcenter رایگان یا با تخفیف است.",
+            "هم‌زمان با یادگیری زبان، برای دوره‌های کارآموزی (Ausbildung) آماده شوید."
+          ],
+          mapQuery: `Volkshochschule VHS Integrationskurs ${cleanCity}`,
+          phone: "مراجعه حضوری یا تماس با دفتر VHS شهر"
+        }
+      ];
+
+      const grid = document.getElementById("cityCardsGrid");
+      grid.innerHTML = cards
+        .map((c) => {
+          const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.mapQuery)}`;
+          const extra = c.extraLink
+            ? ` | <a href="${c.extraLink}" target="_blank" rel="noopener">پورتال ایالتی</a>`
+            : "";
+          return `
+            <article class="card">
+              <span class="badge">${c.badge}</span>
+              <h4>${c.title}</h4>
+              <p>${c.desc}</p>
+              <ul>${c.items.map((i) => `<li>${i}</li>`).join("")}</ul>
+              <div class="meta-line">
+                <strong>تماس:</strong> ${c.phone}<br />
+                <strong>موقعیت و آدرس دقیق:</strong> <a href="${mapUrl}" target="_blank" rel="noopener">نمایش روی نقشه Google Maps</a>${extra}
+              </div>
+            </article>
+          `;
+        })
+        .join("");
+
+      // 2. Update Lawyer-style Guide
+      const lawyerDiv = document.getElementById("lawyerContent");
+      lawyerDiv.innerHTML = `
+        <h4>${guide.title} — ویژه ساکنین ${cleanCity} (${state})</h4>
+        <div class="step-box">
+          <strong>مراحل عملی و راه حل پیشنهادی:</strong>
+          <ul style="padding-right: 18px; margin-top: 6px;">
+            ${guide.steps.map((s) => `<li style="margin-bottom: 6px;">${s}</li>`).join("")}
+          </ul>
+        </div>
+        <div class="step-box">
+          <strong>مدارک مورد نیاز که باید آماده کنید:</strong>
+          <p style="margin-top: 4px; color: var(--text);">${guide.docs}</p>
+        </div>
+        <div class="warning-box">
+          <strong>هشدار مهم حقوقی و اداری:</strong> ${guide.warning}
+        </div>
+        <p class="disclaimer">توجه: این راهنما بر اساس قوانین عمومی مهاجرت و امور اجتماعی آلمان برای آگاهی‌بخشی و تسریع کار پناهجویان تهیه شده است؛ در پرونده‌های دادگاهی یا رد پناهندگی حتماً با وکیل (Fachanwalt) یا مراکز رایگان Asylberatung مشورت کنید.</p>
+      `;
+
+      // 3. Auto-fill Email Generator
+      buildEmailText();
+    }
+
+    function buildEmailText() {
+      const { state, city } = getActiveLocation();
+      const cleanCity = city.replace(/\(.*?\)/g, "").trim();
+      const problemKey = problemSelect.value;
+      const guide = problemGuides[problemKey];
+
+      const name = document.getElementById("userNameInput").value.trim();
+      const dob = document.getElementById("userDobInput").value.trim();
+      const caseNo = document.getElementById("userCaseInput").value.trim();
+      const phone = document.getElementById("userPhoneInput").value.trim();
+
+      const body = guide.emailBody(cleanCity, state, name, dob, caseNo, phone);
+      const subjectLine = `Betreff (موضوع ایمیل): ${guide.emailSubject.replace("${name}", name || "[نام شما]")}\n----------------------------------------\n`;
+      document.getElementById("generatedEmailArea").value = subjectLine + body;
+    }
+
+    stateSelect.addEventListener("change", () => {
+      populateCities(stateSelect.value);
+      customCityInput.value = "";
+      renderAllGuidance();
+    });
+
+    citySelect.addEventListener("change", () => {
+      customCityInput.value = "";
+      renderAllGuidance();
+    });
+
+    problemSelect.addEventListener("change", renderAllGuidance);
+    document.getElementById("btnRunGuide").addEventListener("click", renderAllGuidance);
+    document.getElementById("btnBuildEmail").addEventListener("click", buildEmailText);
+
+    document.getElementById("btnCopyGeneratedEmail").addEventListener("click", () => {
+      const txt = document.getElementById("generatedEmailArea").value;
+      if (!txt) return;
+      navigator.clipboard?.writeText(txt);
+      const notice = document.getElementById("copyNotice");
+      notice.textContent = "متن ایمیل با موفقیت کپی شد؛ اکنون می‌توانید در Gmail یا برنامه ایمیل خود Paste کنید.";
+      setTimeout(() => (notice.textContent = ""), 4000);
+    });
+
+    document.getElementById("btnJumpEmail").addEventListener("click", () => {
+      buildEmailText();
+      document.getElementById("emailSection").scrollIntoView({ behavior: "smooth" });
+    });
+
+    // Top Navigation Filter
+    const navButtons = document.querySelectorAll(".nav-btn");
+    const viewSections = document.querySelectorAll(".view-section");
+    navButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
-        tabs.forEach((b) => b.classList.remove("active"));
+        navButtons.forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
-        activeCat = btn.dataset.cat;
-        renderCards();
+        const target = btn.dataset.target;
+        viewSections.forEach((sec) => {
+          sec.style.display = target === "all" || sec.dataset.view === target ? "block" : "none";
+        });
       });
     });
 
-    searchInput.addEventListener("input", renderCards);
-
-    document.getElementById("analyzeBtn").addEventListener("click", () => {
-      const text = document.getElementById("letterInput").value.trim();
-      const box = document.getElementById("resultBox");
-      box.style.display = "block";
-
-      if (!text) {
-        box.innerHTML = "لطفاً ابتدا یک متن یا عبارت آلمانی وارد کنید.";
-        return;
-      }
-
-      const lower = text.toLowerCase();
-      const hints = [];
-      if (lower.includes("termin")) hints.push("<b>Termin</b>: به معنای «وقت ملاقات / نوبت» است.");
-      if (lower.includes("frist")) hints.push("<b>Frist</b>: به معنای «مهلت زمانی» برای اقدام یا پاسخ است.");
-      if (lower.includes("bescheid")) hints.push("<b>Bescheid</b>: حکم یا اعلام رسمی تصمیم یک اداره است.");
-      if (lower.includes("jobcenter")) hints.push("<b>Jobcenter</b>: مرکز خدمات شغلی و حمایت اجتماعی.");
-      if (lower.includes("krankenkasse")) hints.push("<b>Krankenkasse</b>: صندوق بیمه سلامت.");
-
-      const summary = hints.length
-        ? hints.join("<br>")
-        : "واژه کلیدی شناخته‌شده‌ای یافت نشد؛ برای ترجمه دقیق‌تر، متن کامل‌تر را وارد کنید.";
-
-      box.innerHTML = `<strong>تعداد کلمات:</strong> ${text.split(/\s+/).length}<br>${summary}`;
-    });
-
-    renderCards();
+    // Initialize
+    populateStates();
+    populateCities(stateSelect.value);
+    renderAllGuidance();
   </script>
 </body>
 </html>
